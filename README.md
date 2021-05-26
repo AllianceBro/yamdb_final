@@ -40,3 +40,7 @@ Python 3.8.5, Docker, Django and Django REST, Gunicorn, Nginx
 About author
 ------------
 Newbie in programming. Yandex.Praktikum student.
+***
+Workflow checker
+----------------
+![Check workflow](https://github.com/AllianceBro/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
