@@ -42,5 +42,7 @@ class IsAuthorOrAdminOrModerator(permissions.BasePermission):
                     or request.method == 'POST'
                     and request.user.is_authenticated):
                 return True
+            return False
         elif request.method in permissions.SAFE_METHODS:
             return True
+        return False

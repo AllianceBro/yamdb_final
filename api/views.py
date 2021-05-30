@@ -1,27 +1,25 @@
 import uuid
 
 from django.core.mail import BadHeaderError, send_mail
-from django.shortcuts import get_object_or_404
 from django.db.models import Avg
-
-from rest_framework import viewsets, status, filters, permissions, generics
-from rest_framework.decorators import api_view, action
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, generics, permissions, status, viewsets
+from rest_framework.decorators import action, api_view
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.pagination import PageNumberPagination
-
-from django_filters.rest_framework import DjangoFilterBackend
-
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .filters import TitleFilter
+from .models import Category, Genre, Review, Title, User, UserToRegister
 from .paginators import StandardPagination
-from .models import Category, Genre, Title, Review, User, UserToRegister
-from .permissions import (IsAdminOrReadOnly, IsAdmin,
-                          IsAuthorOrAdminOrModerator, IsAbleToChangeRoles)
-from .serializers import (CategorySerializer, GenreSerializer,
+from .permissions import (IsAbleToChangeRoles, IsAdmin, IsAdminOrReadOnly,
+                          IsAuthorOrAdminOrModerator)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, ReviewSerializer,
                           TitleSafeMethodSerializer, TitleSerializer,
-                          ReviewSerializer, CommentSerializer, UserSerializer)
+                          UserSerializer)
 
 SAFE_METHODS = ('GET', 'HEAD', 'OPTIONS')
 
