@@ -44,3 +44,7 @@ Newbie in programming. Yandex.Praktikum student.
 Workflow checker
 ----------------
 ![Checker workflow](https://github.com/AllianceBro/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+***
+Test
+----
+You can test this project on http://84.252.135.63/api/v1/
