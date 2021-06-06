@@ -47,4 +47,4 @@ Workflow checker
 ***
 Test
 ----
-You can test this project on http://84.252.135.63/api/v1/
+You can test this project on http://84.252.134.74:8000
