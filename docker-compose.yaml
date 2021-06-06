@@ -17,6 +17,8 @@ services:
     restart: always
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
     restart: always
+    ports:
+      - "8000:8000"
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
@@ -30,7 +32,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d
+      - ./nginx:/etc/nginx/conf.d
       - static_value:/var/html/static/
       - media_value:/var/html/media/
     depends_on:
