@@ -53,6 +53,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         stack_file_name: docker-compose.yaml
         script: |
+          cd yamdb_final
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
           sudo docker-compose stop
           sudo docker-compose rm web
