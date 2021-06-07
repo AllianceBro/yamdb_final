@@ -9,7 +9,6 @@ services:
       - ./.env
 
   web:
-    image: sexasio/yamdb_final:latest
     build: .
     restart: always
     volumes:
@@ -26,8 +25,8 @@ services:
       - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - static_value:/var/html/static/
-      - media_value:/var/html/media/
+      - static_value:/code/static/
+      - media_value:/code/media/
     depends_on:
       - web
 
