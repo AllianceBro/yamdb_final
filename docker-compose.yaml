@@ -1,10 +1,6 @@
 version: '3.3'
 
 services:
-  yamdb_final:
-    image: sexasio/yamdb_final:latest
-    build: .
-
   db:
     image: postgres:12.4
     volumes:
@@ -17,8 +13,6 @@ services:
     restart: always
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
     restart: always
-    ports:
-      - "8000:8000"
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
