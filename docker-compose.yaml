@@ -1,6 +1,10 @@
 version: '3.3'
 
 services:
+  yamdb_final: 
+    image: sexasio/yamdb_final:latest 
+    build: .
+
   db:
     image: postgres:12.4
     volumes:
@@ -9,7 +13,7 @@ services:
       - ./.env
 
   web:
-    image: sexasio/yamdb_final:latest
+    build: .
     restart: always
     volumes:
       - static_value:/code/static/
