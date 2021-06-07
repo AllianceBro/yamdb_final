@@ -1,6 +1,9 @@
 name: CI
  
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
@@ -53,9 +56,11 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         stack_file_name: docker-compose.yaml
         script: |
+          cd yamdb_final
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
-          sudo docker stop
+          sudo docker-compose stop
           sudo docker-compose rm web
+          sudo docker rm -f $(sudo docker ps -a -q)
           touch .env 
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
