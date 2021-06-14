@@ -23,9 +23,9 @@ services:
   nginx:
     image: nginx:1.19.3
     ports:
-      - "80:80"
+      - "8084:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/:/etc/nginx/conf.d/
       - static_value:/code/static/
       - media_value:/code/media/
     depends_on:
